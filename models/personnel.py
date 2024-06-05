@@ -1,0 +1,7 @@
+from odoo import models, fields
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    job_category_id = fields.Many2many('job.category', 'job_category_res_partner_rel', 'partner_id', 'job_category_id', string="Job Categories")
+    image = fields.Binary(string="Image")
