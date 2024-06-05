@@ -15,8 +15,8 @@
                         <field name="job_category_id" modifiers="{}"/>
                     </div>
                     <div>
-                        <label for="personnel_id" string="Pack for"/>
-                        <field name="personnel_id" modifiers="{}"/>
+                        <label for="partner_id" string="Pack for"/>
+                        <field name="partner_id" modifiers="{}"/>
                     </div>
                 </div>
             </xpath>

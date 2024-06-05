@@ -5,3 +5,5 @@ class ResPartner(models.Model):
 
     job_category_id = fields.Many2many('job.category', 'job_category_res_partner_rel', 'partner_id', 'job_category_id', string="Job Categories")
     image = fields.Binary(string="Image")
+
+    product_pack_ids = fields.One2many('product.template', 'partner_id', string='Product Packs')
