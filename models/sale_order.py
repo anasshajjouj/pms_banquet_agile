@@ -12,6 +12,7 @@ class SaleOrder(models.Model):
                                         help='The selected pack product for'
                                              ' the sale order.')
 
+
     @api.onchange('product_pack_ids')
     def onchange_product_pack_ids(self):
         """Perform actions when the selected pack product changes."""

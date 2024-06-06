@@ -15,16 +15,16 @@ class ProductTemplate(models.Model):
     @api.onchange('job_category_id')
     def _onchange_job_category_id(self):
         if not self.job_category_id:
-            self.personnel_id = False
+            self.partner_id = False
 
     job_category_id = fields.Many2one('job.category', string='Job Category')
-    personnel_id = fields.Many2one('res.partner', string='Pack for', domain="[('job_category_id', '=', job_category_id)]")
+    partner_id = fields.Many2one('res.partner', string='Pack for', domain="[('job_category_id', '=', job_category_id)]")
     is_pack = fields.Boolean(string='Is a Pack', help='Indicates whether the product is a pack or not.')
     pack_price = fields.Float(string="Pack Price", compute='set_pack_price', store=True, help='The calculated price of the pack.')
     pack_products_ids = fields.One2many('pack.products', 'product_tmpl_id', string='Pack Products', copy=True, help='The list of products included in the pack.')
     pack_quantity = fields.Integer(string='Pack Quantity', help='The quantity of the product in the pack.')
     pack_location_id = fields.Many2one('stock.location', domain=[('usage', 'in', ['internal', 'transit'])], default=default_pack_location, string='Pack Location', help='The default location for the pack.')
-    partner_id = fields.Many2one('res.partner', string='Customer', help='Customer for whom this product pack is created')
+    # partner_id = fields.Many2one('res.partner', string='Customer', help='Customer for whom this product pack is created')
 
     @api.onchange('is_pack')
     def _onchange_is_pack(self):
